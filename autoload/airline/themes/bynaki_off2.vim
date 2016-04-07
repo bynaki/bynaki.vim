@@ -1,4 +1,4 @@
-" Airline bynaki_off theme
+" Airline bynaki_off2 theme
 
 
 " Each theme is contained in its own file and declares variables scoped to the
@@ -23,7 +23,7 @@
 " First, let's define an empty dictionary and assign it to the "palette"
 " variable. The # is a separator that maps with the directory structure. If
 " you get this wrong, Vim will complain loudly.
-let g:airline#themes#bynaki_off#palette = {}
+let g:airline#themes#bynaki_off2#palette = {}
 
 " First let's define some arrays. The s: is just a VimL thing for scoping the
 " variables to the current script. Without this, these variables would be
@@ -31,15 +31,15 @@ let g:airline#themes#bynaki_off#palette = {}
 " to the dictionary.  The array is in the format:
 " [ guifg, guibg, ctermfg, ctermbg, opts ]. See "help attr-list" for valid
 " values for the "opt" value.
-let s:N1   = [ '#a8a8a8' , '#303030' , 248 , 236 ]
+let s:N1   = [ '#080808' , '#3a3a3a' , 232 , 236 ]
 let s:N2   = [ '#444444' , '#080808' , 238 , 232 ]
 let s:N3   = [ '#262626' , '#000000' , 235 , 000 ]
-let g:airline#themes#bynaki_off#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
+let g:airline#themes#bynaki_off2#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
 
 " Here we define overrides for when the buffer is modified.  This will be
-" applied after g:airline#themes#bynaki_off#palette.normal, hence why only certain keys are
+" applied after g:airline#themes#bynaki_off2#palette.normal, hence why only certain keys are
 " declared.
-let g:airline#themes#bynaki_off#palette.normal_modified = {
+let g:airline#themes#bynaki_off2#palette.normal_modified = {
       \ 'airline_c': [ '#262626' , '#000000' , 235     , 000     , ''     ] ,
       \ }
 
@@ -47,25 +47,25 @@ let g:airline#themes#bynaki_off#palette.normal_modified = {
 let s:I1 = [ '#1c1c1c' , '#d0d0d0' , 234 , 252  ]
 let s:I2 = [ '#444444' , '#080808' , 238 , 232  ]
 let s:I3 = [ '#262626' , '#000000' , 235 , 000  ]
-let g:airline#themes#bynaki_off#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
-let g:airline#themes#bynaki_off#palette.insert_modified = {
+let g:airline#themes#bynaki_off2#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
+let g:airline#themes#bynaki_off2#palette.insert_modified = {
       \ 'airline_c': [ '#262626' , '#000000' , 235     , 000     , ''     ] ,
       \ }
-let g:airline#themes#bynaki_off#palette.insert_paste = {
+let g:airline#themes#bynaki_off2#palette.insert_paste = {
       \ 'airline_a': [ s:I1[0]   , '#d78700' , s:I1[2] , 172     , ''     ] ,
       \ }
 
 
-let g:airline#themes#bynaki_off#palette.replace = copy(g:airline#themes#bynaki_off#palette.insert)
-" let g:airline#themes#bynaki_off#palette.replace.airline_a = [ s:I2[0]   , '#af0000' , s:I2[2] , 124     , ''     ]
-let g:airline#themes#bynaki_off#palette.replace_modified = g:airline#themes#bynaki_off#palette.insert_modified
+let g:airline#themes#bynaki_off2#palette.replace = copy(g:airline#themes#bynaki_off2#palette.insert)
+" let g:airline#themes#bynaki_off2#palette.replace.airline_a = [ s:I2[0]   , '#af0000' , s:I2[2] , 124     , ''     ]
+let g:airline#themes#bynaki_off2#palette.replace_modified = g:airline#themes#bynaki_off2#palette.insert_modified
 
 
 let s:V1 = [ '#3a3a3a' , '#b2b2b2' , 237 , 249  ]
 let s:V2 = [ '#444444' , '#808080' , 238 , 232  ]
 let s:V3 = [ '#262626' , '#000080' , 235 , 000  ]
-let g:airline#themes#bynaki_off#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
-let g:airline#themes#bynaki_off#palette.visual_modified = {
+let g:airline#themes#bynaki_off2#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
+let g:airline#themes#bynaki_off2#palette.visual_modified = {
       \ 'airline_c': [ '#262626' , '#000000' , 235     , 000     , ''     ] ,
       \ }
 
@@ -73,8 +73,8 @@ let g:airline#themes#bynaki_off#palette.visual_modified = {
 let s:IA1 = [ '#4e4e4e' , '#1c1c1c' , 239 , 234 , '' ]
 let s:IA2 = [ '#4e4e4e' , '#262626' , 239 , 235 , '' ]
 let s:IA3 = [ '#4e4e4e' , '#303030' , 239 , 236 , '' ]
-let g:airline#themes#bynaki_off#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3)
-let g:airline#themes#bynaki_off#palette.inactive_modified = {
+let g:airline#themes#bynaki_off2#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3)
+let g:airline#themes#bynaki_off2#palette.inactive_modified = {
       \ 'airline_c': [ '#eeeeee' , '' , 255 , '' , '' ] ,
       \ }
 
@@ -86,7 +86,7 @@ let g:airline#themes#bynaki_off#palette.inactive_modified = {
 " this means is that regardless of which section the part is defined in, it
 " will be red instead of the section's foreground color. You can also have
 " multiple parts with accents within a section.
-let g:airline#themes#bynaki_off#palette.accents = {
+let g:airline#themes#bynaki_off2#palette.accents = {
       \ 'red': [ '#af0087' , '' , 126, ''  ]
       \ }
 
@@ -98,7 +98,7 @@ let g:airline#themes#bynaki_off#palette.accents = {
 if !get(g:, 'loaded_ctrlp', 0)
   finish
 endif
-let g:airline#themes#bynaki_off#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+let g:airline#themes#bynaki_off2#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
       \ [ '#d7d7ff' , '#5f00af' , 189 , 55  , ''     ],
       \ [ '#ffffff' , '#875fd7' , 231 , 98  , ''     ],
       \ [ '#5f00af' , '#ffffff' , 55  , 231 , 'bold' ])

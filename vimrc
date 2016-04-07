@@ -88,10 +88,10 @@ set number " 행번호
 set laststatus=2 " Airline을 위해 상태 보여주기
 set hlsearch
 if has('gui_running') " vim이 gui라면.. (MacVim을 위해)
-  colorscheme bynaki_off " 색상 테마
+  colorscheme bynaki_off2 " 색상 테마
   set guifont=Consolas:h28 " MacVim의 폰트와 사이즈 설정
 else
-  colorscheme bynaki_off " 색상 테마
+  colorscheme bynaki_off2 " 색상 테마
 endif
 
 au BufNewFile,BufRead *.handlebars set filetype=html " .handlebars html 하이라이트
