@@ -14,7 +14,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'majutsushi/tagbar' " tag를 보여준다
-Plug 'shougo/neocomplete.vim' " AutoComplete
+" Plug 'shougo/neocomplete.vim' " AutoComplete :: 버그가 있다.
 " Plug 'marijnh/tern_for_vim' " javascript 분석기
 Plug 'townk/vim-autoclose' " 괄호를 자동으로 닫기
 Plug 'tomtom/tcomment_vim' " 자동 주석 <C-_><C-_>
@@ -76,6 +76,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " 설정들은 아래에 작성
 
 syntax on " 구문 강조
+set t_Co=256 " 256색상 사용
 set autoindent " 자동 들여쓰기
 " C 언어 스타일 들여쓰기
 au BufRead,BufNewFile *.cpp,*.cxx,*.cc,*.c,*.js,*.java set cindent
@@ -88,10 +89,10 @@ set number " 행번호
 set laststatus=2 " Airline을 위해 상태 보여주기
 set hlsearch
 if has('gui_running') " vim이 gui라면.. (MacVim을 위해)
-  colorscheme bynaki_off2 " 색상 테마
+  colorscheme bynaki_off " 색상 테마
   set guifont=Consolas:h28 " MacVim의 폰트와 사이즈 설정
 else
-  colorscheme bynaki_off2 " 색상 테마
+  colorscheme bynaki_off " 색상 테마
 endif
 
 au BufNewFile,BufRead *.handlebars set filetype=html " .handlebars html 하이라이트

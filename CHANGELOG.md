@@ -4,3 +4,11 @@
 - bynaki\_off2 테마
 - bynaki\_off2 Airline 테마
 - bynaki\_off Airline 테마 수정
+
+
+#### v0.1.2
+- vimrc: set t_Co 추가
+- blockspliter.vim: getcurpos() -> getpos('.') getcurpos()는 더이상 지원하지 않는다.
+- vimrc: neocomplete.vim 주석처리. 버그가 있다.
+- bynaki_off: terminal 색상 방영.
+

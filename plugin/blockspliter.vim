@@ -4,7 +4,7 @@
 
 function! blockspliter#isInBlock()
   " 현재 커서 position
-  let pos = getcurpos()
+  let pos = getpos('.')
   " 현재 라인 가져오기
   let line = getline(pos[1])
   if pos[2] >= 2 && pos[2] <= len(line)
