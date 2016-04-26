@@ -14,13 +14,14 @@ Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'majutsushi/tagbar' " tag를 보여준다
+Plug 'ervandew/supertab' " AutoComplete
 " Plug 'shougo/neocomplete.vim' " AutoComplete :: 버그가 있다.
 " Plug 'marijnh/tern_for_vim' " javascript 분석기
 Plug 'townk/vim-autoclose' " 괄호를 자동으로 닫기
 Plug 'tomtom/tcomment_vim' " 자동 주석 <C-_><C-_>
 Plug 'bling/vim-airline' " 상태표시, 탭
-Plug 'vim-airline/vim-airline-themes' " vim-airline 테마
-Plug 'flazz/vim-colorschemes' " 색상 테마 모음
+" Plug 'vim-airline/vim-airline-themes' " vim-airline 테마
+" Plug 'flazz/vim-colorschemes' " 색상 테마 모음
 " Plug 'chriskempson/base16-vim' " 색상 테마
 " Plug 'nanotech/jellybeans.vim' " 색상 테마
 
@@ -31,6 +32,10 @@ Plug 'tpope/vim-fugitive'
 " https://github.com/guns/xterm-color-table.vim
 " xterm 칼라 테이블
 Plug 'guns/xterm-color-table.vim'
+
+" https://github.com/mattn/emmet-vim
+" emmet
+Plug 'mattn/emmet-vim'
 
 " 내 플러그인
 Plug '~/Projects/bynaki.vim'
@@ -106,12 +111,16 @@ au InsertLeave * set nocursorline
 let mapleader = " "
 inoremap ;; <ESC>A
 inoremap zz <C-O>zz
-nnoremap <S-RIGHT> :bn<CR>
-nnoremap <C-S-RIGHT> :update<CR>:bn<CR>
-nnoremap <S-LEFT> :bp<CR>
-nnoremap <C-S-LEFT> :update<CR>:bp<CR>
-inoremap <C-CR> <ESC>o
-inoremap <C-S-CR> <ESC>O
+" nnoremap <S-RIGHT> :bn<CR>
+nnoremap k :bn<CR>
+" nnoremap <C-S-RIGHT> :update<CR>:bn<CR>
+nnoremap K :update<CR>:bn<CR>
+" nnoremap <S-LEFT> :bp<CR>
+nnoremap j :bp<CR>
+" nnoremap <C-S-LEFT> :update<CR>:bp<CR>
+nnoremap J :update<CR>:bp<CR>
+" inoremap <C-CR> <ESC>o
+" inoremap <C-S-CR> <ESC>O
 nnoremap <Leader>e :.s/</\&lt;/ge<CR>:.s/>/\&gt;/ge<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>p :CtrlP<CR>
