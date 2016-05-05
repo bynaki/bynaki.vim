@@ -17,7 +17,7 @@ Plug 'majutsushi/tagbar' " tag를 보여준다
 Plug 'ervandew/supertab' " AutoComplete
 " Plug 'shougo/neocomplete.vim' " AutoComplete :: 버그가 있다.
 " Plug 'marijnh/tern_for_vim' " javascript 분석기
-Plug 'townk/vim-autoclose' " 괄호를 자동으로 닫기
+" Plug 'townk/vim-autoclose' " 괄호를 자동으로 닫기
 Plug 'tomtom/tcomment_vim' " 자동 주석 <C-_><C-_>
 Plug 'bling/vim-airline' " 상태표시, 탭
 " Plug 'vim-airline/vim-airline-themes' " vim-airline 테마
@@ -37,11 +37,13 @@ Plug 'guns/xterm-color-table.vim'
 " emmet
 Plug 'mattn/emmet-vim'
 
+" https://github.com/raimondi/delimitmate
+" 자동 괄호 닫기.
+Plug 'raimondi/delimitmate'
+
 " 내 플러그인
-Plug '~/Projects/bynaki.vim'
+Plug '~/Dropbox/Projects/bynaki.vim'
 call plug#end()
-
-
 
 " Plugin 설정들
 
@@ -53,7 +55,11 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " AutoClose
-au BufNewFile,BufRead *.md,*.markdown, AutoCloseOff
+" au BufNewFile,BufRead *.md,*.markdown AutoCloseOff
+
+" delimitmate
+" au BufNewFile,BufRead *.md,*.markdown let b:delimitMate_autoclose = 0
+au FileType markdown let b:delimitMate_autoclose = 0
 
 " CtrlP
 let g:ctrlp_cmd = 'CtrlP .'  " 현재 작업 디렉토리에서 실행
@@ -66,15 +72,15 @@ let g:ctrlp_custom_ignore = {
 
 " neocomplete
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+" let g:acp_enableAtStartup = 0
 " Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_at_startup = 1
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " inoremap <expr><CR>  pumvisible() ? "\<C-n>" : "\<CR>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 
 
@@ -91,6 +97,7 @@ set tabstop=2 " 탭 너비
 set expandtab " 탭하였을 때 공백으로
 set background=dark " 하이라이팅 light / dark
 set number " 행번호
+set fileformat=unix " 파일 줄바꿈 형식
 set laststatus=2 " Airline을 위해 상태 보여주기
 set hlsearch
 if has('gui_running') " vim이 gui라면.. (MacVim을 위해)
@@ -111,14 +118,12 @@ au InsertLeave * set nocursorline
 let mapleader = " "
 inoremap ;; <ESC>A
 inoremap zz <C-O>zz
-" nnoremap <S-RIGHT> :bn<CR>
-nnoremap k :bn<CR>
-" nnoremap <C-S-RIGHT> :update<CR>:bn<CR>
-nnoremap K :update<CR>:bn<CR>
-" nnoremap <S-LEFT> :bp<CR>
-nnoremap j :bp<CR>
-" nnoremap <C-S-LEFT> :update<CR>:bp<CR>
-nnoremap J :update<CR>:bp<CR>
+" nnoremap k :bn<CR>
+nnoremap <C-K> :bn<CR>
+" nnoremap K :update<CR>:bn<CR>
+" nnoremap j :bp<CR>
+nnoremap <C-J> :bp<CR>
+" nnoremap J :update<CR>:bp<CR>
 " inoremap <C-CR> <ESC>o
 " inoremap <C-S-CR> <ESC>O
 nnoremap <Leader>e :.s/</\&lt;/ge<CR>:.s/>/\&gt;/ge<CR>
