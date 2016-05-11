@@ -22,3 +22,8 @@
 - vimrc: set fileformat=unix 추가
 - vimrc: bynaik.vim 경로 변경.
 
+
+#### v0.1.5
+- vimrc: let b:delimitMate_expand_space = 0
+- vimrc: CtrlP pwd  // 현재 작업 디렉토리
+

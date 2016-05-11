@@ -59,10 +59,11 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " delimitmate
 " au BufNewFile,BufRead *.md,*.markdown let b:delimitMate_autoclose = 0
+let b:delimitMate_expand_space = 0  " 전줄의 상황에 맞게 다음줄의 위치를 맞추지 않는다.
 au FileType markdown let b:delimitMate_autoclose = 0
 
 " CtrlP
-let g:ctrlp_cmd = 'CtrlP .'  " 현재 작업 디렉토리에서 실행
+let g:ctrlp_cmd = 'CtrlP pwd'  " 현재 작업 디렉토리에서 실행
 " 제외할 것들
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules',
@@ -128,6 +129,6 @@ nnoremap <C-J> :bp<CR>
 " inoremap <C-S-CR> <ESC>O
 nnoremap <Leader>e :.s/</\&lt;/ge<CR>:.s/>/\&gt;/ge<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>p :CtrlP pwd<CR>
 nnoremap <Leader>r :CtrlPTag<CR>
 
