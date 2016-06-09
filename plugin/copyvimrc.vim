@@ -8,7 +8,7 @@ let s:vimrcPath = bynaki#path . '/vimrc'
 
 function! copyvimrc#copy()
   " string을 명령모드로 실행.
-  exe '!cp ' . s:vimrcPath . ' ' . '~/.vimrc' 
+  exe '!cp ' . s:vimrcPath . ' ' . '~/.vimrc'
 endfunction
 
 " :BynakiCopyVimrc 를 등록한다.

@@ -15,9 +15,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'majutsushi/tagbar' " tag를 보여준다
 Plug 'ervandew/supertab' " AutoComplete
-" Plug 'shougo/neocomplete.vim' " AutoComplete :: 버그가 있다.
 " Plug 'marijnh/tern_for_vim' " javascript 분석기
-" Plug 'townk/vim-autoclose' " 괄호를 자동으로 닫기
 Plug 'tomtom/tcomment_vim' " 자동 주석 <C-_><C-_>
 Plug 'bling/vim-airline' " 상태표시, 탭
 " Plug 'vim-airline/vim-airline-themes' " vim-airline 테마
@@ -41,9 +39,18 @@ Plug 'mattn/emmet-vim'
 " 자동 괄호 닫기.
 Plug 'raimondi/delimitmate'
 
+" https://github.com/mxw/vim-jsx
+" Syntax highlighting and indenting for JSX
+" Plug 'mxw/vim-jsx'
+
+" https://github.com/pangloss/vim-javascript
+" JavaScript bundle for vim, this bundle provides syntax highlighting and improved indentation.
+Plug 'pangloss/vim-javascript'
+
 " 내 플러그인
 Plug '~/Dropbox/Projects/bynaki.vim'
 call plug#end()
+
 
 " Plugin 설정들
 
@@ -54,12 +61,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
-" AutoClose
-" au BufNewFile,BufRead *.md,*.markdown AutoCloseOff
-
 " delimitmate
 " au BufNewFile,BufRead *.md,*.markdown let b:delimitMate_autoclose = 0
-let b:delimitMate_expand_space = 0  " 전줄의 상황에 맞게 다음줄의 위치를 맞추지 않는다.
 au FileType markdown let b:delimitMate_autoclose = 0
 
 " CtrlP
@@ -71,17 +74,12 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-" neocomplete
-" Disable AutoComplPop.
-" let g:acp_enableAtStartup = 0
-" Use neocomplete.
-" let g:neocomplete#enable_at_startup = 1
-" <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" inoremap <expr><CR>  pumvisible() ? "\<C-n>" : "\<CR>"
-" <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" vim-jsx
+" let g:jsx_ext_required = 0    " .js파일도 적용되게
+" let g:jsx_pragma_required = 1
+
+" vim-javascript
+let g:javascript_enable_domhtmlcss = 1
 
 
 
@@ -91,13 +89,14 @@ syntax on " 구문 강조
 set t_Co=256 " 256색상 사용
 set autoindent " 자동 들여쓰기
 " C 언어 스타일 들여쓰기
-au BufRead,BufNewFile *.cpp,*.cxx,*.cc,*.c,*.js,*.java set cindent
+au FileType c,cpp,java,javascript setlocal cindent
 set shiftwidth=2 " 블록시작 들여쓰기 너비
 set smartindent " 스마트한 들여쓰기 "
 set tabstop=2 " 탭 너비
 set expandtab " 탭하였을 때 공백으로
 set background=dark " 하이라이팅 light / dark
 set number " 행번호
+au FileType markdown setlocal nonumber
 set fileformat=unix " 파일 줄바꿈 형식
 set laststatus=2 " Airline을 위해 상태 보여주기
 set hlsearch
@@ -117,14 +116,15 @@ au InsertLeave * set nocursorline
 
 " keymap
 let mapleader = " "
-inoremap ;; <ESC>A
+inoremap ; <ESC>A
+nnoremap ; A;<ESC>
 inoremap zz <C-O>zz
-" nnoremap k :bn<CR>
-nnoremap <C-K> :bn<CR>
-" nnoremap K :update<CR>:bn<CR>
-" nnoremap j :bp<CR>
-nnoremap <C-J> :bp<CR>
-" nnoremap J :update<CR>:bp<CR>
+nnoremap f :bn<CR>
+nnoremap k :bn<CR>
+nnoremap K :update<CR>:bn<CR>
+nnoremap b :bp<CR>
+nnoremap j :bp<CR>
+nnoremap J :update<CR>:bp<CR>
 " inoremap <C-CR> <ESC>o
 " inoremap <C-S-CR> <ESC>O
 nnoremap <Leader>e :.s/</\&lt;/ge<CR>:.s/>/\&gt;/ge<CR>

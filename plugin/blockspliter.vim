@@ -14,6 +14,10 @@ function! blockspliter#isInBlock()
       return 1
     elseif s == '[' && e == ']'
       return 1
+    elseif s == '(' && e == ')'
+      return 1
+    elseif s == '>' && e == '<'
+      return 1
     endif
   endif
 endfunction
