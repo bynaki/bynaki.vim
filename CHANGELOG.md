@@ -39,5 +39,4 @@
 - blockspliter.js: (), >< 추가
 - vimrc: vim-javascript
 - vimrc: change bynaki.vim path
-
-
+- vimrc: set encoding 추가

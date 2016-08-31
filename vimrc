@@ -85,6 +85,7 @@ let g:javascript_enable_domhtmlcss = 1
 
 " 설정들은 아래에 작성
 
+set encoding=utf-8  " 보여지는 encoding
 syntax on " 구문 강조
 set t_Co=256 " 256색상 사용
 set autoindent " 자동 들여쓰기
