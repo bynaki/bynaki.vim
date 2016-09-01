@@ -121,10 +121,10 @@ inoremap ; <ESC>A
 nnoremap ; A;<ESC>
 inoremap zz <C-O>zz
 nnoremap f :bn<CR>
-nnoremap k :bn<CR>
+" nnoremap k :bn<CR>
 nnoremap K :update<CR>:bn<CR>
 nnoremap b :bp<CR>
-nnoremap j :bp<CR>
+" nnoremap j :bp<CR>
 nnoremap J :update<CR>:bp<CR>
 " inoremap <C-CR> <ESC>o
 " inoremap <C-S-CR> <ESC>O
