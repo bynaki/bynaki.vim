@@ -40,3 +40,8 @@
 - vimrc: vim-javascript
 - vimrc: change bynaki.vim path
 - vimrc: set encoding 추가
+
+#### v0.1.7
+- bynaki\_off > 색상을 Bright(008~014) 로 바꿈
+- vimrc > :bn, :bp 키 바꿈
+
